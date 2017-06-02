@@ -23,7 +23,7 @@
   :dependencies
   '[[org.clojure/clojure "1.9.0-alpha17"]
     [nightlight "1.6.4" :scope "test"]
-    [clojurewerkz/ogre "3.0.0.0-beta2"]
+    [clojurewerkz/ogre "3.0.0.0-beta3-SNAPSHOT"]
     [org.apache.tinkerpop/gremlin-core "3.2.4"]
     [org.apache.tinkerpop/gremlin-test "3.2.4"  :scope "test"]
     [org.apache.tinkerpop/tinkergraph-gremlin "3.2.4" :scope "test"]
