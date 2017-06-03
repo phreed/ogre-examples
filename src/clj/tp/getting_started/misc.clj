@@ -1,14 +1,18 @@
-(ns tp.getting-started
+(ns tp.getting-started.misc
   ";;http://tinkerpop.apache.org/docs/current/tutorials/getting-started/ "
   (:require [clojure.test :refer [deftest testing is]]            
             [clojurewerkz.ogre.core :as q]
             [clojurewerkz.ogre.util :as util]
-            [clojure.pprint :as pp])  
+            [clojure.pprint :as pp] 
+            [tp.getting-started.helper :as help])
   (:import (org.apache.tinkerpop.gremlin.structure T Vertex)
            (org.apache.tinkerpop.gremlin.process.traversal P Traversal)
-           (org.apache.tinkerpop.gremlin.tinkergraph.structure TinkerGraph TinkerFactory)))
- 
+           (org.apache.tinkerpop.gremlin.tinkergraph.structure TinkerGraph TinkerFactory))
+ )
+(def graph (help/createModern))
+;; (def graph (TinkerFactory/createModern))
 
+(def g (q/traversal graph))
 
 ;; "g.V(v1Id).as('a').out('created').addE('createdBy').to('a').property('weight', 2.0d)" 
 (.toString

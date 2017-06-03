@@ -1,9 +1,10 @@
-(ns tp.getting-started
+(ns tp.getting-started.first-five-minutes
   ";;http://tinkerpop.apache.org/docs/current/tutorials/getting-started/ "
   (:require [clojure.test :refer [deftest testing is]]            
             [clojurewerkz.ogre.core :as q]
             [clojurewerkz.ogre.util :as util]
-            [clojure.pprint :as pp])  
+            [clojure.pprint :as pp]
+            [tp.getting-started.helper :as help])
   (:import (org.apache.tinkerpop.gremlin.structure T Vertex)
            (org.apache.tinkerpop.gremlin.process.traversal P Traversal)
            (org.apache.tinkerpop.gremlin.tinkergraph.structure TinkerGraph TinkerFactory)))
@@ -11,9 +12,9 @@
 
 ;; The First Five Minutes
 
-(def graph (q/open-graph {(TinkerGraph/GRAPH) 
-                          (.getName TinkerGraph)}))
-(TinkerFactory/generateModern graph)
+
+(def graph (help/createModern))
+;; (def graph (TinkerFactory/createModern))
 (.toString graph)
 
 (def g (q/traversal graph))

@@ -1,9 +1,10 @@
-(ns tp.getting-started
+(ns tp.getting-started.next-fifteen-minutes
   ";;http://tinkerpop.apache.org/docs/current/tutorials/getting-started/ "
   (:require [clojure.test :refer [deftest testing is]]            
             [clojurewerkz.ogre.core :as q]
             [clojurewerkz.ogre.util :as util]
-            [clojure.pprint :as pp])  
+            [clojure.pprint :as pp]
+            [tp.getting-started.helper :as help])  
   (:import (org.apache.tinkerpop.gremlin.structure T Vertex)
            (org.apache.tinkerpop.gremlin.process.traversal P Traversal)
            (org.apache.tinkerpop.gremlin.tinkergraph.structure TinkerGraph TinkerFactory)))
@@ -24,12 +25,12 @@ graph
   [v1 label v2 & args]
   (.addEdge v1 label v2 (into-array Object args)))
 
-(def v1 (addVertex graph T/id (int 1), T/label "person", "name" "marko", "age" 29))
+(def v1 (addVertex graph T/id 1, T/label "person", "name" "marko", "age" 29))
 v1
-(def v2 (addVertex graph T/id (int 3), T/label "software", "name" "lop", "lang" "java"))
+(def v2 (addVertex graph T/id 3, T/label "software", "name" "lop", "lang" "java"))
 v2
 
-(addEdge v1 "created" v2 T/id (int 9), "weight" 0.4)
+(addEdge v1 "created" v2 T/id 9, "weight" 0.4)
 
 ;; Graph Traversal - Staying Simple
 
@@ -70,7 +71,7 @@ v2
     (q/values :name))
 
 ;; Graph Traversal - Increasing Complexity
-(def graph-modern (TinkerFactory/createModern))
+(def graph-modern (help/createModern))
 graph-modern
 
 (def gm (q/traversal graph-modern))
